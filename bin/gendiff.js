@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+
 import { program } from 'commander';
+import gendiff from '../src/inner/index_Gendiff';
 
 program
   .name('gendiff')
@@ -10,5 +12,6 @@ program
   .option('-f, --format [type]', 'output format')
   .argument(`<filepath1>`)
   .argument(`<filepath2>`)
+  .action()
 
 program.parse();
