@@ -13,7 +13,8 @@ program
   .argument(`<filepath1>`)
   .argument(`<filepath2>`)
   .action((filePath1, filePath2) => {
-    console.log(gendiff(filePath1, filePath2));
+    const result = gendiff(filePath1, filePath2);
+    console.log(result);
   })
 
-  program.parse(process.argv);
+  program.parse();
