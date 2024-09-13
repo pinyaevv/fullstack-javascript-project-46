@@ -1,6 +1,5 @@
 import jsYaml from "js-yaml";
 
-
 const parsers = {
     json: JSON.parse,
     yaml: jsYaml.load,
