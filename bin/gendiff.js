@@ -10,11 +10,11 @@ program
 
 program
   .option('-f, --format [type]', 'output format')
-  .argument(`<filepath1>`)
-  .argument(`<filepath2>`)
+  .argument('<filepath1>')
+  .argument('<filepath2>')
   .action((filePath1, filePath2) => {
     const result = gendiff(filePath1, filePath2);
     console.log(result);
-  })
+  });
 
-  program.parse();
+program.parse();
