@@ -7,12 +7,38 @@ const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => join(__dirname, '..', '__fixtures__', filename);
 
-test('different meanings in one key', () => {
-  const file1 = getFixturePath('file1Test.json');
-  const file2 = getFixturePath('file2Test.json');
+const testFileCase = [
+  {
+    file1: 'file1.json',
+    file2: 'file2.json',
+    expected: `{
+ - follow: false
+   host: hexlet.io
+ - proxy: 123.234.53.22
+ - timeout: 50
+ + timeout: 20
+ + verbose: true
+}`,
+  },
 
-  expect(gendiff(file1, file2)).toContain('+ key1: newValue');
-  expect(gendiff(file1, file2)).toContain('  key2: value2');
-  expect(gendiff(file1, file2)).toContain('+ key3: value3');
-  expect(gendiff(file1, file2)).toContain('- key4: value4');
+  {
+    file1: 'filepath1.yml',
+    file2: 'filepath2.yml',
+    expected: `{
+ - follow: false
+   host: hexlet.io
+ - proxy: 123.234.53.22
+ - timeout: 50
+ + timeout: 20
+ + verbose: true
+}`,
+  },
+
+];
+
+test('compare key values', () => {
+  testFileCase.forEach(({ file1, file2, expected }) => {
+    const diffFile = gendiff(getFixturePath(file1), getFixturePath(file2));
+    expect(diffFile).toEqual(expected);
+  });
 });
