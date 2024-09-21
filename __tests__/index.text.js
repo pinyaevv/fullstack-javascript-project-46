@@ -12,25 +12,35 @@ const testFileCase = [
     file1: 'file1.json',
     file2: 'file2.json',
     expected: `{
- - follow: false
-   host: hexlet.io
- - proxy: 123.234.53.22
- - timeout: 50
- + timeout: 20
- + verbose: true
+    common: {
+      - follow: false
+        setting1: Value 1
+      - setting2: 200
+      - setting3: true
+      + setting3: null
+      + setting4: blah blah
+      + setting5: {
+            key5: value5
+        }
+    }
 }`,
   },
 
   {
-    file1: 'filepath1.yml',
-    file2: 'filepath2.yml',
+    file1: 'file1.yml',
+    file2: 'file2.yml',
     expected: `{
- - follow: false
-   host: hexlet.io
- - proxy: 123.234.53.22
- - timeout: 50
- + timeout: 20
- + verbose: true
+    common: {
+      - follow: false
+        setting1: Value 1
+      - setting2: 200
+      - setting3: true
+      + setting3: null
+      + setting4: blah blah
+      + setting5: {
+            key5: value5
+        }
+    }
 }`,
   },
 
