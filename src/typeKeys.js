@@ -11,6 +11,7 @@ const diffFile = (file1, file2) => {
       return {
         key,
         value: val1,
+        children: [],
         status: 'deleted',
       };
     }
@@ -19,6 +20,7 @@ const diffFile = (file1, file2) => {
       return {
         key,
         value: val2,
+        children: [],
         status: 'added',
       };
     }
@@ -37,6 +39,7 @@ const diffFile = (file1, file2) => {
         key,
         oldValue: val1,
         newValue: val2,
+        children: [],
         status: 'changed',
       };
     }
@@ -44,6 +47,7 @@ const diffFile = (file1, file2) => {
     return {
       key,
       value: val1,
+      children: [],
       status: 'unchanged',
     };
   });

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import parserData from './parses.js';
 import diffFile from './typeKeys.js';
-import stylish from './formatters/stylish.js';
+import formatters from './formatters/index.js';
 
 const getAbsolutePath = (filePath) => path.resolve(filePath);
 const formatFile = (filePath) => path.extname(filePath).slice(1);
@@ -17,13 +17,9 @@ const gendiff = (filePath1, filePath2, format = 'stylish') => {
 
   const compareFiles = diffFile(data1, data2);
 
-  const formatters = {
-    stylish,
-  };
+  const result = formatters[format](compareFiles);
 
-  const formatter = formatters[format];
-
-  return formatter(compareFiles, 1);
+  return result;
 };
 
 export default gendiff;

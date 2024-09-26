@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
-import gendiff from '../index.js';
+import diffFiles from '../index.js';
 
 program
   .name('gendiff')
@@ -12,7 +12,7 @@ program
   .argument('<filepath2>')
   .action((filePath1, filePath2) => {
     const { format } = program.opts();
-    const result = gendiff(filePath1, filePath2, format);
+    const result = diffFiles(filePath1, filePath2, format);
     console.log(result);
   });
 

@@ -1,3 +1,3 @@
-import gendiff from './src/index.js';
+import diffFiles from './src/diffFiles.js';
 
-export default gendiff;
+export default diffFiles;

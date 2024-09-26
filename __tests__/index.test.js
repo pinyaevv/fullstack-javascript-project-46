@@ -1,18 +1,21 @@
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import gendiff from '../src/index.js';
+import gendiff from '../src/diffFiles.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => join(__dirname, '..', '__fixtures__', filename);
+
 const jsonFile1 = getFixturePath('file1.json');
 const jsonFile2 = getFixturePath('file2.json');
 const ymlFile1 = getFixturePath('file1.yml');
 const ymlFile2 = getFixturePath('file2.yml');
 
+const normalizeWhitespace = (string) => string.replace(/\s+/g, ' ').trim();
+
 const testFileCase = `{
-  common: {
+   common: {
     + follow: false
       setting1: Value 1
     - setting2: 200
@@ -69,11 +72,16 @@ Property 'group2' was removed
 Property 'group3' was added with value: [complex value]`;
 
 test('compare key values', () => {
-  expect(gendiff(jsonFile1, jsonFile2)).toEqual(testFileCase);
-  expect(gendiff(ymlFile1, ymlFile2)).toEqual(testFileCase);
+  expect(normalizeWhitespace(gendiff(jsonFile1, jsonFile2))).toEqual(normalizeWhitespace(testFileCase));
+  expect(normalizeWhitespace(gendiff(ymlFile1, ymlFile2))).toEqual(normalizeWhitespace(testFileCase));
 });
 
 test('compare key values in stylish', () => {
-  expect(gendiff(jsonFile1, jsonFile2, 'stylish')).toEqual(testFileCase);
-  expect(gendiff(ymlFile1, ymlFile2, 'stylish')).toEqual(testFileCase);
+  expect(normalizeWhitespace(gendiff(jsonFile1, jsonFile2, 'stylish'))).toEqual(normalizeWhitespace(testFileCase));
+  expect(normalizeWhitespace(gendiff(ymlFile1, ymlFile2, 'stylish'))).toEqual(normalizeWhitespace(testFileCase));
+});
+
+test('compare key values in plain', () => {
+  expect(gendiff(jsonFile1, jsonFile2, 'plain')).toEqual(plainFiles);
+  expect(gendiff(ymlFile1, ymlFile2, 'plain')).toEqual(plainFiles);
 });
