@@ -31,6 +31,7 @@ export default [
     plugins: { import: importPlugin },
     rules: {
       ...importPlugin.configs.recommended.rules,
+      'max-len': ['error', { code: 120 }],
     },
   },
   ...compat.extends('airbnb-base'),
