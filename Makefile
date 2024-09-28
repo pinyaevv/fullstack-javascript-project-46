@@ -1,4 +1,7 @@
 install:
+	npm link
+
+install-deps:
 	npm ci
 
 gendiff:
@@ -14,6 +17,4 @@ lint:
 	npx eslint .
 
 publish:
-	npm publish
-
-.PHONY: test
+	npm publish --dry-run

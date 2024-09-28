@@ -12,6 +12,6 @@
 
 1) Установливаем программу и зависимости с поомщью команды: make install
 2) Вывод справки по программе: gendiff -h
-<iframe src="https://asciinema.org/a/Pb75Hry24hSd2rGBNZ4CXeuvv" width="100%" height="500" frameborder="0"></iframe>
+[![asciicast](https://asciinema.org/a/Pb75Hry24hSd2rGBNZ4CXeuvv.svg)](https://asciinema.org/a/Pb75Hry24hSd2rGBNZ4CXeuvv)
 3) Передача аргументов для чтения и парсинга: gendiff [filepath1] [filepath2]
 4)
