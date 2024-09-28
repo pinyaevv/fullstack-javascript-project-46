@@ -30,6 +30,7 @@ const stylish = (tree, depth = 1, replacer = ' ', spacesCount = 4) => {
         throw new Error(`No value: ${node.status}`);
     }
   });
+
   return `{\n${result.join('\n')}\n${bracketIndent}}`;
 };
 
