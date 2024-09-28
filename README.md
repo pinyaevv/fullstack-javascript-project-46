@@ -14,3 +14,4 @@
 2) Вывод справки по программе: gendiff -h
 <iframe src="https://asciinema.org/a/Pb75Hry24hSd2rGBNZ4CXeuvv" width="100%" height="500" frameborder="0"></iframe>
 3) Передача аргументов для чтения и парсинга: gendiff [filepath1] [filepath2]
+4)
