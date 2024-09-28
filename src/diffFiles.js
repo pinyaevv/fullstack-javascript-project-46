@@ -17,9 +17,7 @@ const gendiff = (filePath1, filePath2, format = 'stylish') => {
 
   const compareFiles = diffFile(data1, data2);
 
-  const result = formatters[format](compareFiles);
-
-  return result;
+  return formatters[format](compareFiles);
 };
 
 export default gendiff;

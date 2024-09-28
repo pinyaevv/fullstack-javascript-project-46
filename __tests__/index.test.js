@@ -92,3 +92,9 @@ test('compare key values in json', () => {
   expect(gendiff(jsonFile1, jsonFile2, 'json')).toEqual(jsonStructure);
   expect(gendiff(ymlFile1, ymlFile2, 'json')).toEqual(jsonStructure);
 });
+
+// В ожидаемый результат ввожу структуру из заданий.
+// Пробовал сделать универсальный тест, который будет работать с разными входящими файлами.
+// Но к результату не пришел. Либо так и должно быть и я что-то упускаю.
+// const jsonStructure - пытался сделать с json.stringify через отдельный файл и его импорт,
+// но по сути шило на мыло выходит...
