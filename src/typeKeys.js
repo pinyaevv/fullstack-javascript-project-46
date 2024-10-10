@@ -11,7 +11,6 @@ const diffFile = (file1, file2) => {
       return {
         key,
         value: val1,
-        children: [],
         status: 'deleted',
       };
     }
@@ -20,7 +19,6 @@ const diffFile = (file1, file2) => {
       return {
         key,
         value: val2,
-        children: [],
         status: 'added',
       };
     }
@@ -39,7 +37,6 @@ const diffFile = (file1, file2) => {
         key,
         oldValue: val1,
         newValue: val2,
-        children: [],
         status: 'changed',
       };
     }
@@ -47,7 +44,6 @@ const diffFile = (file1, file2) => {
     return {
       key,
       value: val1,
-      children: [],
       status: 'unchanged',
     };
   });
@@ -57,5 +53,5 @@ const diffFile = (file1, file2) => {
 
 export default diffFile;
 
-// Мне не нравится данная структура, но не очень понимаю как её переделать.
-// Честно скажу, что я её подсмотрел, пробовла по своему, но код не работал.
+// Мне не нравится, что много if и ретурнов).
+// Может можно сделать через filter внутри map + тернарные оператор.
