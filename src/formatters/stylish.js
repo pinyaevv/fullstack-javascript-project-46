@@ -31,7 +31,7 @@ const stylish = (tree, depth = 1, replacer = ' ', spacesCount = 4) => {
     }
   });
 
-  return `{\n${result.join('\n')}\n${bracketIndent}}`;
+  return `{\n ${result.join('\n')}\n${bracketIndent}}`;
 };
 
 export default stylish;
