@@ -21,7 +21,7 @@ const stylish = (tree, depth = 1, replacer = ' ', spacesCount = 4) => {
       case 'added':
         return `${currentIndent}+ ${node.key}: ${outputValue(node.value, depth + 1)}`;
       case 'nested':
-        return `${currentIndent} ${node.key}: ${stylish(node.children, depth + 1)}`;
+        return `${currentIndent}  ${node.key}: ${stylish(node.children, depth + 1)}`;
       case 'changed':
         return `${currentIndent}- ${node.key}: ${outputValue(node.oldValue, depth + 1)}\n${currentIndent}+ ${node.key}: ${outputValue(node.newValue, depth + 1)}`;
       case 'unchanged':
@@ -31,7 +31,7 @@ const stylish = (tree, depth = 1, replacer = ' ', spacesCount = 4) => {
     }
   });
 
-  return `{\n ${result.join('\n')}\n${bracketIndent}}`;
+  return `{\n${result.join('\n')}\n${bracketIndent}}`;
 };
 
 export default stylish;

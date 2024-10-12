@@ -1,6 +1,6 @@
 {
     common: {
-       + follow: false
+      + follow: false
         setting1: Value 1
       - setting2: 200
       - setting3: true
@@ -9,17 +9,17 @@
       + setting5: {
             key5: value5
         }
-       setting6: {
+        setting6: {
             doge: {
-               - wow: 
+              - wow: 
               + wow: so much
             }
             key: value
           + ops: vops
         }
     }
-   group1: {
-       - baz: bas
+    group1: {
+      - baz: bas
       + baz: bars
         foo: bar
       - nest: {
