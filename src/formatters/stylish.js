@@ -2,13 +2,13 @@ import _ from 'lodash';
 
 const stylish = (tree, depth = 1, replacer = ' ', spacesCount = 4) => {
   const indentSize = depth * spacesCount;
-  const currentIndent = replacer.repeat(indentSize - 2);
+  const currentIndent = replacer.repeat(indentSize);
   const bracketIndent = replacer.repeat((depth - 1) * spacesCount);
 
   const outputValue = (value, innerDepth) => {
     if (_.isObject(value) && value !== null) {
       const entries = Object.entries(value)
-        .map(([key, val]) => `${replacer.repeat((innerDepth + 1) * spacesCount)}${key}: ${outputValue(val, innerDepth + 1)}`);
+        .map(([key, val]) => `${replacer.repeat(innerDepth * spacesCount)}${key}: ${outputValue(val, innerDepth + 1)}`);
       return `{\n${entries.join('\n')}\n${replacer.repeat((innerDepth - 1) * spacesCount)}}`;
     }
     return value;
