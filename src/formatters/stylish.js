@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 const stylish = (tree, depth = 1, replacer = ' ', spacesCount = 4) => {
   const indentSize = depth * spacesCount;
-  const currentIndent = replacer.repeat(indentSize);
+  const currentIndent = replacer.repeat(indentSize + 2);
   const bracketIndent = replacer.repeat((depth - 1) * spacesCount);
 
   const outputValue = (value, innerDepth) => {

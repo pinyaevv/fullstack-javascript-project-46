@@ -18,16 +18,14 @@ const stylishTest = getDataFile('stylish.txt');
 const plainTest = getDataFile('plain.txt');
 const jsonTest = getDataFile('json.txt');
 
-const normalizeWs = (string) => string.replace(/\s+/g, ' ').trim();
-
 test('compare key values', () => {
-  expect(normalizeWs(gendiff(jsonFile1, jsonFile2))).toEqual(normalizeWs(stylishTest));
-  expect(normalizeWs(gendiff(ymlFile1, ymlFile2))).toEqual(normalizeWs(stylishTest));
+  expect((gendiff(jsonFile1, jsonFile2))).toEqual((stylishTest));
+  expect((gendiff(ymlFile1, ymlFile2))).toEqual((stylishTest));
 });
 
 test('compare key values in stylish', () => {
-  expect(normalizeWs(gendiff(jsonFile1, jsonFile2, 'stylish'))).toEqual(normalizeWs(stylishTest));
-  expect(normalizeWs(gendiff(ymlFile1, ymlFile2, 'stylish'))).toEqual(normalizeWs(stylishTest));
+  expect((gendiff(jsonFile1, jsonFile2, 'stylish'))).toEqual((stylishTest));
+  expect((gendiff(ymlFile1, ymlFile2, 'stylish'))).toEqual((stylishTest));
 });
 
 test('compare key values in plain', () => {
