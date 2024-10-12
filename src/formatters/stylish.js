@@ -6,7 +6,7 @@ const stylish = (tree, depth = 1, replacer = ' ', spacesCount = 4) => {
   const bracketIndent = replacer.repeat((depth - 1) * spacesCount);
 
   const outputValue = (value, innerDepth) => {
-    if (_.isObject(value)) {
+    if (_.isObject(value) && value !== null) {
       const entries = Object.entries(value)
         .map(([key, val]) => `${replacer.repeat(innerDepth * spacesCount)}${key}: ${outputValue(val, innerDepth + 1)}`);
       return `{\n${entries.join('\n')}\n${replacer.repeat(innerDepth * spacesCount)}}`;
