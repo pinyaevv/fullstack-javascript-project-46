@@ -1,4 +1,4 @@
-gitinstall: install-deps
+install: install-deps
 	npm link
 
 install-deps:
